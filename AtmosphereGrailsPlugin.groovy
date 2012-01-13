@@ -28,8 +28,8 @@ class AtmosphereGrailsPlugin {
     def artefacts = [new AtmosphereHandlerArtefactHandler()]
 
     // TODO Fill in these fields
-    def author = "Bertrand Goetzmann"
-    def authorEmail = "bgoetzmann@odelia-technologies.com"
+    def author = "Bertrand Goetzmann, Stéphane Maldini"
+    def authorEmail = "bgoetzmann@odelia-technologies.com, stephane.maldini@gmail.com"
     def title = "Grails Atmosphere Plugin"
     def description = '''\\
 Provides integration with the Atmosphere framework, a portable AjaxPush/Comet framework.

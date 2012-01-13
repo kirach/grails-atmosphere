@@ -16,18 +16,25 @@ grails.project.dependency.resolution = {
 
         // uncomment the below to enable remote dependency resolution
         // from public Maven repositories
-		//mavenLocal()
-		mavenCentral()
+        //mavenLocal()
+        mavenCentral()
+        mavenRepo "https://oss.sonatype.org/content/repositories/releases"
         //mavenRepo "http://snapshots.repository.codehaus.org"
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
     }
+
+    plugins{
+        build ':release:1.0.1'
+    }
+
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
+        build 'org.grails.plugins:release:1.0.1'
 
-        runtime ('org.atmosphere:atmosphere-runtime:0.7.2') {
-            exclude 'slf4j-api'
+        compile('org.atmosphere:atmosphere-runtime:0.8.3') {
+            excludes 'slf4j-api', 'atmosphere-ping'
         }
     }
 }
