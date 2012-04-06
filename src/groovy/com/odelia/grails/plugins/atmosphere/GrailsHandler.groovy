@@ -18,14 +18,14 @@ class GrailsHandler implements AtmosphereHandler<HttpServletRequest, HttpServlet
     	targetService.metaClass.getServletContext = { servletContext }
     }
 	
-	void onRequest(AtmosphereResource<HttpServletRequest, HttpServletResponse> event) throws IOException {
+	void onRequest(AtmosphereResource event) throws IOException {
     	targetService.onRequest(event)
 	}
 	
-	void onStateChange(AtmosphereResourceEvent<HttpServletRequest, HttpServletResponse> event) throws IOException {		
+	void onStateChange(AtmosphereResourceEvent event) throws IOException {
 		targetService.onStateChange(event)
 	}
-	
-	void destroy() {}
+
+    void destroy() {}
 	
 }
