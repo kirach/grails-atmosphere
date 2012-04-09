@@ -14,19 +14,19 @@ class StratosphereServlet extends AtmosphereServlet  {
 
 
 	@Override
-    protected void loadConfiguration(ServletConfig sc) throws ServletException {
+    public void init(final ServletConfig sc) throws ServletException {
 
         sc.servletContext.setAttribute(ATMOSPHERE_PLUGIN_ATMOSPHERE_SERVLET, this)
-        sc.servletContext.setAttribute(ATMOSPHERE_PLUGIN_HANDLERS_CONFIG, atmosphereConfig.handlers())
+        sc.servletContext.setAttribute(ATMOSPHERE_PLUGIN_HANDLERS_CONFIG, framework.atmosphereConfig.handlers())
 
         // Add services handlers
         def handlers = sc.servletContext.getAttribute(ATMOSPHERE_PLUGIN_SERVICE_HANDLERS)
         handlers.each {
             it.handler.setServletContext(sc.servletContext)
-            addAtmosphereHandler("${it.mapping}", it.handler)
+            framework.addAtmosphereHandler("${it.mapping}", it.handler)
         }
 
-        super.loadConfiguration sc
+        super.init sc
     }
 	
 }
